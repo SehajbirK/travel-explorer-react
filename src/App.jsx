@@ -9,7 +9,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search/:city" element={<Search />} />
+        <Route path="/search/:city" element={<Destination />} />
+
         <Route path="/destination/:city" element={<Destination />} />
         <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
