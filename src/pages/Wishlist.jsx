@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 export default function Wishlist() {
   const storedItems = JSON.parse(localStorage.getItem("wishlist")) || [];
   const [items, setItems] = useState(storedItems);
-  const [cityImages, setCityImages] = useState({}); // { city: [img1, img2, ...] }
+  const [cityImages, setCityImages] = useState({}); 
 
   useEffect(() => {
     const fetchImages = async () => {
