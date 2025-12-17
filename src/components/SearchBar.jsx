@@ -2,30 +2,34 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
-  const [query, setQuery] = useState("");
+  const [city, setCity] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (!query) return;
-    navigate(`/search/${query}`);
-  };
+  // All 20 sample cities
+  const famousCities = [
+    "Paris", "New York", "Tokyo", "London", "Dubai", "Sydney", "Rome",
+    "Barcelona", "Amsterdam", "Istanbul", "Bangkok", "Singapore", "HongKong",
+    "LosAngeles", "SanFrancisco", "Cairo", "RioDeJaneiro", "Moscow", "Athens", "Vancouver"
+  ];
 
   return (
-    <form onSubmit={handleSearch} className="flex w-full max-w-md mx-auto">
-      <input
-        type="text"
-        placeholder="Search for a city..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="flex-1 p-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400"
-      />
+    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <select
+        className="border p-2 rounded w-64"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      >
+        <option value="">Select a city</option>
+        {famousCities.map((c) => (
+          <option key={c} value={c}>{c}</option>
+        ))}
+      </select>
       <button
-        type="submit"
-        className="bg-blue-500 text-white px-5 rounded-r-lg hover:bg-blue-600 transition"
+        onClick={() => city && navigate(`/search/${city}`)}
+        className="bg-blue-500 text-white px-5 py-2 rounded hover:bg-blue-600 transition"
       >
         Search
       </button>
-    </form>
+    </div>
   );
 }

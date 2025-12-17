@@ -7,16 +7,9 @@ export default function Navbar() {
         <h1 className="text-2xl font-semibold tracking-wide">
           ✈ Travel Explorer
         </h1>
-
         <div className="flex gap-8 text-sm uppercase tracking-wide">
-          <Link to="/" className="hover:text-yellow-300 transition">
-            Home
-          </Link>
-          <Link to="/wishlist" className="hover:text-yellow-300 transition">
-            Wishlist
-          </Link>
-          <span className="opacity-70">Discover</span>
-          <span className="opacity-70">About</span>
+          <Link to="/" className="hover:text-yellow-300 transition">Home</Link>
+          <Link to="/wishlist" className="hover:text-yellow-300 transition">Wishlist</Link>
         </div>
       </div>
     </nav>
